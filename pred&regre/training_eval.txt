@@ -1,0 +1,68 @@
+(pcia_modern) surya@Priv824:~/PCIA/med2vec$ python med2vec_3k.py 
+Training Exact Med2Vec Architecture on cuda
+Loading data...
+Reconstructed 2792 patient trajectories.
+Generated 253314 training pairs (t, t+1).
+Starting Training...
+Epoch 1/10 | Loss: 0.0099
+Epoch 2/10 | Loss: 0.0029
+Epoch 3/10 | Loss: 0.0024
+Epoch 4/10 | Loss: 0.0023
+Epoch 5/10 | Loss: 0.0022
+Epoch 6/10 | Loss: 0.0021
+Epoch 7/10 | Loss: 0.0021
+Epoch 8/10 | Loss: 0.0021
+Epoch 9/10 | Loss: 0.0020
+Epoch 10/10 | Loss: 0.0020
+Training Complete. Saved W_c weights to med2vec_3k.pt
+(pcia_modern) surya@Priv824:~/PCIA/med2vec$ cd ..
+(pcia_modern) surya@Priv824:~/PCIA$ cd pred\&regre/
+(pcia_modern) surya@Priv824:~/PCIA/pred&regre$ python lstm_3k.py 
+--- LSTM Training on cuda ---
+Loaded Med2Vec weights.
+Starting Training...
+Epoch 1 Loss: 2.4171
+Epoch 2 Loss: 1.8293
+Epoch 3 Loss: 1.6155
+Epoch 4 Loss: 1.4478
+Epoch 5 Loss: 1.2073
+Epoch 6 Loss: 1.0349
+Epoch 7 Loss: 0.8701
+Epoch 8 Loss: 0.6391
+Epoch 9 Loss: 0.5854
+Epoch 10 Loss: 0.4110
+Epoch 11 Loss: 0.3143
+Epoch 12 Loss: 0.2453
+Epoch 13 Loss: 0.1989
+Epoch 14 Loss: 0.1502
+Epoch 15 Loss: 0.1281
+
+=== LSTM RESULTS ===
+AUC: 0.9244
+AP : 0.8748
+MAE: 187.88 days
+(pcia_modern) surya@Priv824:~/PCIA/pred&regre$ python mamba_3k.py 
+--- MAMBA Training on cuda ---
+Loaded Med2Vec weights.
+Starting Training...
+Epoch 1 Loss: 2.8171
+Epoch 2 Loss: 1.9943
+Epoch 3 Loss: 2.1061
+Epoch 4 Loss: 1.9970
+Epoch 5 Loss: 1.9865
+Epoch 6 Loss: 1.9775
+Epoch 7 Loss: 1.7865
+Epoch 8 Loss: 1.7494
+Epoch 9 Loss: 1.5945
+Epoch 10 Loss: 1.4586
+Epoch 11 Loss: 1.4167
+Epoch 12 Loss: 1.9234
+Epoch 13 Loss: 2.6721
+Epoch 14 Loss: 1.3355
+Epoch 15 Loss: 1.2841
+
+=== MAMBA RESULTS ===
+AUC: 0.9105
+AP : 0.8445
+MAE: 68119.71 days
+(pcia_modern) surya@Priv824:~/PCIA/pred&regre$ 
